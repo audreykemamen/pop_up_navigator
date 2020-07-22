@@ -22,7 +22,7 @@ class _BodyState extends State<Body>{
             ),
           ),
           onPressed: (){
-            setAlertDialog();
+            setSimpleAlert("Le Cameroun c'est la magie", "237 is baby forever");
       }),
     );
   }
@@ -58,6 +58,27 @@ class _BodyState extends State<Body>{
                     Navigator.pop(context);
                   },
                   child: new Text("ok")),
+            ],
+          );
+      }
+    );
+  }
+  
+  Future<Null> setSimpleAlert(String title, String description) async{
+    return showDialog(
+        context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context){
+          return SimpleDialog(
+            title: new Text(title),
+            contentPadding: EdgeInsets.all(8.0),
+            children: <Widget> [
+              new Text(description),
+              new RaisedButton(onPressed: (){
+                print("Pop up ok");
+                Navigator.pop(context);
+              },
+                child: new Text("Ok ok"),)
             ],
           );
       }
