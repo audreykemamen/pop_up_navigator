@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:pop_up_navigator/second_page.dart';
 
 class Body extends StatefulWidget{
   @override
@@ -22,7 +23,7 @@ class _BodyState extends State<Body>{
             ),
           ),
           onPressed: (){
-            setSimpleAlert("Le Cameroun c'est la magie", "237 is baby forever");
+            navigateToSecondPage();
       }),
     );
   }
@@ -83,6 +84,12 @@ class _BodyState extends State<Body>{
           );
       }
     );
+  }
+
+  void navigateToSecondPage(){
+    Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context){
+      return new SecondPage("Second page");
+    }));
   }
 
 }
